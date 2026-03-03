@@ -1,0 +1,60 @@
+baseURL = "https://njh8387-ctrl.github.io/algo-trading-blog/"
+languageCode = "en-us"
+title = "Algo Trading Lab"
+theme = "PaperMod"
+[pagination]
+  pagerSize = 10
+
+[params]
+  env = "production"
+  description = "Building profitable crypto trading bots from $86. Real strategies, real code, real results."
+  author = "Algo Trading Lab"
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowToc = true
+  TocOpen = false
+  comments = false
+
+  [params.homeInfoParams]
+    Title = "🤖 Algo Trading Lab"
+    Content = "From $86 to financial freedom — building crypto trading bots with Python, backtesting strategies, and sharing the journey. Real data, no BS."
+
+  [[params.socialIcons]]
+    name = "twitter"
+    url = "https://twitter.com/acplabs_kr"
+
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/acplabs"
+
+  [[params.socialIcons]]
+    name = "youtube"
+    url = "https://youtube.com/@86challenge-u9v"
+
+[markup]
+  [markup.highlight]
+    style = "monokai"
+    lineNos = true
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[menu]
+  [[menu.main]]
+    identifier = "posts"
+    name = "Posts"
+    url = "/posts/"
+    weight = 10
+  [[menu.main]]
+    identifier = "tags"
+    name = "Tags"
+    url = "/tags/"
+    weight = 20
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 30
