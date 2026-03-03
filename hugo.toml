@@ -1,4 +1,4 @@
-baseURL = "https://njh8387-ctrl.github.io/algo-trading-blog/"
+baseURL = "https://njh8387-ctrl.github.io/"
 languageCode = "en-us"
 title = "Algo Trading Lab"
 theme = "PaperMod"
