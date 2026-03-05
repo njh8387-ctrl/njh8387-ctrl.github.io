@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>From $86 to $100: How My Tiny Trading Bot Survived the Drawdown Gauntlet | Algo Trading Lab</title>
+<meta name="keywords" content="trading-bot, crypto, bitcoin, deribit, python">
+<meta name="description" content="Real lessons from building automated trading bots">
+<meta name="author" content="Algo Trading Lab">
+<link rel="canonical" href="https://njh8387-ctrl.github.io/posts/from-86-to-100-how-my-tiny-trading-bot-survived-the-drawdown/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.c2189e7d36d72767de292f8b9d897e4a464aa5bc7eb692cda50064f5eb9eeece.css" integrity="sha256-whiefTbXJ2feKS&#43;LnYl&#43;SkZKpbx&#43;tpLNpQBk9eue7s4=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://njh8387-ctrl.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://njh8387-ctrl.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://njh8387-ctrl.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://njh8387-ctrl.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://njh8387-ctrl.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://njh8387-ctrl.github.io/posts/from-86-to-100-how-my-tiny-trading-bot-survived-the-drawdown/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1041234490447582" crossorigin="anonymous"></script>
+<meta property="og:url" content="https://njh8387-ctrl.github.io/posts/from-86-to-100-how-my-tiny-trading-bot-survived-the-drawdown/">
+  <meta property="og:site_name" content="Algo Trading Lab">
+  <meta property="og:title" content="From $86 to $100: How My Tiny Trading Bot Survived the Drawdown Gauntlet">
+  <meta property="og:description" content="Real lessons from building automated trading bots">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-03-05T21:55:56+09:00">
+    <meta property="article:modified_time" content="2026-03-05T21:55:56+09:00">
+    <meta property="article:tag" content="Trading-Bot">
+    <meta property="article:tag" content="Crypto">
+    <meta property="article:tag" content="Bitcoin">
+    <meta property="article:tag" content="Deribit">
+    <meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="From $86 to $100: How My Tiny Trading Bot Survived the Drawdown Gauntlet">
+<meta name="twitter:description" content="Real lessons from building automated trading bots">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://njh8387-ctrl.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "From $86 to $100: How My Tiny Trading Bot Survived the Drawdown Gauntlet",
+      "item": "https://njh8387-ctrl.github.io/posts/from-86-to-100-how-my-tiny-trading-bot-survived-the-drawdown/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "From $86 to $100: How My Tiny Trading Bot Survived the Drawdown Gauntlet",
+  "name": "From $86 to $100: How My Tiny Trading Bot Survived the Drawdown Gauntlet",
+  "description": "Real lessons from building automated trading bots",
+  "keywords": [
+    "trading-bot", "crypto", "bitcoin", "deribit", "python"
+  ],
+  "articleBody": "You know that feeling? The one where you’ve poured hours into building something, tweaking it, and finally unleashing it into the wild? It’s exhilarating, especially when you start with a shoestring budget. For me, that journey began with a modest $86, a dream of automated riches, and a trading bot I affectionately nicknamed “PocketRocket.” This isn’t about blowing up an account with leverage (though we’ll touch on that!), or boasting about insane backtest numbers. This is a raw, honest account of what happens when your meticulously crafted bot faces the brutal reality of live trading, specifically, how it navigated the dreaded drawdown.\nLet’s be clear: PocketRocket wasn’t born from a desire for quick wins. It was the culmination of countless hours spent dissecting market behavior, poring over indicator combinations, and yes, the painful lessons learned from previous bot failures (we’ll save those war stories for another day). The core idea was simple: build a robust maker bot that could scalp small profits in volatile markets, with strict risk management to protect that tiny initial capital.\nThe strategy, at its heart, was a blend of momentum and trend following. We wanted to catch quick moves, but only when the broader trend was in our favor. Think of it like this: you wouldn’t try to swim upstream against a raging current, right? Same principle.\nHere’s a simplified look at the core logic:\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 # Simplified Entry Logic def should_enter(current_price, indicators, trend): if trend == \"uptrend\" and indicators_confirm_uptrend(): if price_within_ema_buffer(current_price, indicators): if macd_is_bullish(indicators): if momentum_is_positive(indicators): return True elif trend == \"downtrend\" and indicators_confirm_downtrend(): if price_within_ema_buffer(current_price, indicators): if macd_is_bearish(indicators): if momentum_is_negative(indicators): return True return False def indicators_confirm_uptrend(): # Check EMA50 for overall trend pass def price_within_ema_buffer(price, indicators): # Is price close enough to EMA10 for entry? pass def macd_is_bullish(indicators): # Check MACD value and crossover pass def momentum_is_positive(indicators): # Check 3m and 5m momentum pass The “maker” aspect was crucial. This means we were placing limit orders before hitting the market. The idea was to capture the spread and avoid the immediate slippage that comes with “taker” orders. For take-profit (TP), we also used limit orders, aiming for a small, consistent gain. But the real hero of this story, the one that kept PocketRocket alive, was the stop-loss (SL).\nOur initial SL was set at a tight 0.5% of the trade value, with a take-profit of 1.5%. This was a deliberate choice to favor risk management over aggressive profit-taking. We weren’t aiming to double our money on every trade; we were aiming to survive.\nThe First Signs of Trouble: The Squeeze PocketRocket started its life with a few small, profitable trades. It felt good! The equity curve, while modest, was trending upwards. Then, the market decided to have a little fun. We entered a period of low volatility, a trading graveyard for momentum-based bots.\nThis is where the concept of “drawdown” really hits home. Drawdown is the peak-to-trough decline in an investment. It’s the painful period where your equity curve goes down, and you question every line of code you’ve ever written.\nOne of the first challenges we faced was the CHOP_THRESHOLD. This parameter was designed to detect sideways, choppy markets where price action is erratic and unpredictable. In such conditions, our momentum-based strategy tends to get whipsawed, triggering entries that quickly reverse.\n1 2 3 4 5 6 7 8 9 10 11 12 # Simplified Chop Detection def is_choppy(price_data_10min): price_range = max(price_data_10min) - min(price_data_10min) if price_range \u003c CHOP_THRESHOLD: return True return False # In main loop: if is_choppy(recent_prices): log(\"Choppy market detected. Halting new entries.\") # Prevent new trades pass Initially, our CHOP_THRESHOLD was set a bit too wide. This meant that even in moderately volatile markets, the bot might have been hesitant to enter, missing out on potential opportunities. Conversely, if it was too narrow, it could get caught in minor fluctuations. Finding that sweet spot is an art, not a science. We adjusted it to 0.15% for the 10-minute price range, a value that seemed to capture genuine stagnation.\nThen came the consecutive losses. Even with a tight SL, a string of bad luck can quickly erode capital. Our initial CONSEC_LOSS_LIMIT was set at 5, with a COOLDOWN_SEC of 30 minutes. This meant that after 5 losing trades in a row, the bot would take a 30-minute break.\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 # Simplified Loss Tracking and Cooldown consecutive_losses = 0 last_trade_time = time.time() cooldown_until = 0 def record_loss(): global consecutive_losses, cooldown_until consecutive_losses += 1 if consecutive_losses \u003e= CONSEC_LOSS_LIMIT: log(f\"Consecutive loss limit ({CONSEC_LOSS_LIMIT}) reached. Entering cooldown.\") cooldown_until = time.time() + COOLDOWN_SEC consecutive_losses = 0 # Reset after cooldown period def can_enter_trade(): if time.time() \u003c cooldown_until: return False # Other checks... return True During a particularly brutal market swing, we hit that 5-loss streak. The 30-minute cooldown felt like an eternity. When the bot resumed trading, it was still in a volatile environment, and it quickly racked up another streak. This highlighted a key learning: a 30-minute break might not be enough to allow the market to reset, especially after a significant losing streak.\nThis led to a crucial revision: we increased the CONSEC_LOSS_LIMIT to 3, but significantly extended the COOLDOWN_SEC to a full hour (3600 seconds). The logic was to have shorter, more frequent breaks if we hit a couple of losses, but a longer, more meaningful break after a slightly larger streak. This also meant we introduced an individual cooldown for each SL event.\n1 2 3 4 # v23.4 Updates (Conceptual) CONSEC_LOSS_LIMIT = 3 # Shorter streak triggers cooldown COOLDOWN_SEC = 3600 # Longer cooldown (1 hour) SL_COOLDOWN_SEC = 300 # New: 5-minute cooldown per SL The SL_COOLDOWN_SEC was a new addition, a direct response to the frustration of hitting multiple stop-losses in quick succession. The idea was that if a single trade was stopped out, we’d wait 5 minutes before considering another trade. This gave us a small breather and a chance for the market to settle after a specific loss, rather than just waiting for a general market cooldown. It felt like a more granular approach to risk management.\nThe Leverage Tightrope Ah, leverage. The double-edged sword of crypto trading. PocketRocket started with a modest 10x leverage. This was a conscious decision. We wanted to amplify our small capital without exposing ourselves to catastrophic liquidation risk.\nHowever, even with 10x, a sharp move against us could wipe out a significant portion of our capital. This is where the SL_PCT became even more critical. We initially had it at 0.5%, but after seeing some trades get stopped out too quickly, and others linger too long and incur more slippage, we adjusted it.\nThe backtesting and live monitoring revealed that a SL of 0.8% was a better balance for our strategy. It allowed trades a little more breathing room to develop, but was still tight enough to prevent massive losses.\nOne of the biggest lessons here was the psychological impact of leverage. Even with automated trading, seeing your unrealized P\u0026L swing wildly due to leverage is… intense. It reinforces the need for an ironclad stop-loss and a clear understanding of your risk per trade.\nThe Equity Curve’s Rollercoaster Let’s look at the actual equity curve. Starting at $86, we saw some initial gains, pushing us towards $90. Then, the drawdown began.\n(Imagine a graph here: initial steady climb, then a dip, then a slow recovery, then another dip, and finally a gradual, more stable climb.)\nThe first significant dip saw our capital shrink to around $75. This was a ~12.8% drawdown from our peak. It felt like a gut punch. The bot was still technically functioning, but the losses were outpacing the wins.\nDuring this period, we identified that the MACD_THRESHOLD was too low. We were entering trades on signals that weren’t strong enough, leading to many SL hits. The MACD (Moving Average Convergence Divergence) is a trend-following momentum indicator. A higher threshold means we’re only entering when the MACD signal is very strong, indicating a more confirmed trend.\nWe bumped the MACD_THRESHOLD from 50 to 80. This was a significant change, and it definitely reduced the number of trades, but the quality of the trades improved. Fewer false signals, fewer quick SL hits.\nThen, the market entered a period of moderate volatility. This was PocketRocket’s sweet spot. The momentum indicators were firing, the trend filter was aligning, and we started seeing more profitable trades. The equity curve began to climb back.\nWe eventually broke through our initial peak and nudged past $100. It wasn’t a moonshot, but for an $86 starting capital, surviving a drawdown and ending up over $100 felt like a monumental victory.\nLessons Learned the Hard Way Drawdowns are Inevitable: No matter how good your backtest looks, live markets will throw curveballs. The key is not to avoid drawdowns, but to survive them. This means prioritizing risk management above all else. Parameter Tuning is an Art: Finding the right values for parameters like EMA_BUFFER, MACD_THRESHOLD, CHOP_THRESHOLD, and cooldown periods is an iterative process. What works in backtest might not work live, and vice versa. Continuous monitoring and adjustment are essential. Leverage is a Monster: Even small amounts of leverage can amplify losses quickly. Understand your liquidation price and ensure your SL is well within the bounds of your capital. Cooldowns are Your Friend (When Tuned Right): Don’t be afraid to let your bot rest. A well-timed cooldown can prevent a string of losses from becoming a catastrophic one. The duration and trigger for cooldowns are crucial. Focus on Survival, Not Just Profits: With small capital, your primary goal should be to preserve it. Small, consistent wins and tight risk control are far more effective than chasing huge profits and risking everything. The “Maker” Strategy’s Value: For small capital and scalping, a maker-focused strategy with limit orders for entry and TP can significantly reduce slippage and improve profitability, especially in volatile markets. PocketRocket is still running. It’s not a money-printing machine, but it’s a testament to what’s possible when you combine a solid strategy with disciplined risk management. It’s proof that even with a tiny amount of capital, you can build something that survives the harsh realities of the trading world. The journey from $86 to $100 was more valuable than any percentage gain because it taught me resilience. And in the world of algorithmic trading, resilience is the ultimate currency.\nKey Takeaways Prioritize Risk Management: Stop-losses and cooldown periods are your best friends when trading with small capital. Iterative Parameter Tuning: Don’t expect perfect parameters from the start. Continuously monitor and adjust your bot’s settings based on live performance. Leverage with Caution: Understand the risks associated with leverage and ensure your stop-losses are robust enough. Choppy Markets are Bot Killers: Implement effective mechanisms to detect and avoid trading in sideways, low-volatility markets. Drawdowns are Opportunities to Learn: View drawdowns not as failures, but as valuable data points for improving your bot’s strategy and risk controls. ",
+  "wordCount" : "1862",
+  "inLanguage": "en",
+  "datePublished": "2026-03-05T21:55:56+09:00",
+  "dateModified": "2026-03-05T21:55:56+09:00",
+  "author":{
+    "@type": "Person",
+    "name": "Algo Trading Lab"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://njh8387-ctrl.github.io/posts/from-86-to-100-how-my-tiny-trading-bot-survived-the-drawdown/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Algo Trading Lab",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://njh8387-ctrl.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://njh8387-ctrl.github.io/" accesskey="h" title="Algo Trading Lab (Alt + H)">Algo Trading Lab</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://njh8387-ctrl.github.io/posts/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://njh8387-ctrl.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://njh8387-ctrl.github.io/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://njh8387-ctrl.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://njh8387-ctrl.github.io/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      From $86 to $100: How My Tiny Trading Bot Survived the Drawdown Gauntlet
+    </h1>
+    <div class="post-description">
+      Real lessons from building automated trading bots
+    </div>
+    <div class="post-meta"><span title='2026-03-05 21:55:56 +0900 KST'>March 5, 2026</span>&nbsp;·&nbsp;<span>9 min</span>&nbsp;·&nbsp;<span>Algo Trading Lab</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#the-first-signs-of-trouble-the-squeeze" aria-label="The First Signs of Trouble: The Squeeze">The First Signs of Trouble: The Squeeze</a></li>
+                <li>
+                    <a href="#the-leverage-tightrope" aria-label="The Leverage Tightrope">The Leverage Tightrope</a></li>
+                <li>
+                    <a href="#the-equity-curves-rollercoaster" aria-label="The Equity Curve&rsquo;s Rollercoaster">The Equity Curve&rsquo;s Rollercoaster</a></li>
+                <li>
+                    <a href="#lessons-learned-the-hard-way" aria-label="Lessons Learned the Hard Way">Lessons Learned the Hard Way</a></li>
+                <li>
+                    <a href="#key-takeaways" aria-label="Key Takeaways">Key Takeaways</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>You know that feeling? The one where you&rsquo;ve poured hours into building something, tweaking it, and finally unleashing it into the wild? It’s exhilarating, especially when you start with a shoestring budget. For me, that journey began with a modest $86, a dream of automated riches, and a trading bot I affectionately nicknamed &ldquo;PocketRocket.&rdquo; This isn&rsquo;t about blowing up an account with leverage (though we&rsquo;ll touch on that!), or boasting about insane backtest numbers. This is a raw, honest account of what happens when your meticulously crafted bot faces the brutal reality of live trading, specifically, how it navigated the dreaded drawdown.</p>
+<p>Let’s be clear: PocketRocket wasn’t born from a desire for quick wins. It was the culmination of countless hours spent dissecting market behavior, poring over indicator combinations, and yes, the painful lessons learned from previous bot failures (we’ll save those war stories for another day). The core idea was simple: build a robust maker bot that could scalp small profits in volatile markets, with strict risk management to protect that tiny initial capital.</p>
+<p>The strategy, at its heart, was a blend of momentum and trend following. We wanted to catch quick moves, but only when the broader trend was in our favor. Think of it like this: you wouldn&rsquo;t try to swim upstream against a raging current, right? Same principle.</p>
+<p>Here&rsquo;s a simplified look at the core logic:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Simplified Entry Logic</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">should_enter</span>(current_price, indicators, trend):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> trend <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;uptrend&#34;</span> <span style="color:#f92672">and</span> indicators_confirm_uptrend():
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> price_within_ema_buffer(current_price, indicators):
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> macd_is_bullish(indicators):
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> momentum_is_positive(indicators):
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">elif</span> trend <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;downtrend&#34;</span> <span style="color:#f92672">and</span> indicators_confirm_downtrend():
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> price_within_ema_buffer(current_price, indicators):
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> macd_is_bearish(indicators):
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> momentum_is_negative(indicators):
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">indicators_confirm_uptrend</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Check EMA50 for overall trend</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pass</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">price_within_ema_buffer</span>(price, indicators):
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Is price close enough to EMA10 for entry?</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pass</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">macd_is_bullish</span>(indicators):
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Check MACD value and crossover</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pass</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">momentum_is_positive</span>(indicators):
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Check 3m and 5m momentum</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pass</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The &ldquo;maker&rdquo; aspect was crucial. This means we were placing limit orders <em>before</em> hitting the market. The idea was to capture the spread and avoid the immediate slippage that comes with &ldquo;taker&rdquo; orders. For take-profit (TP), we also used limit orders, aiming for a small, consistent gain. But the real hero of this story, the one that kept PocketRocket alive, was the stop-loss (SL).</p>
+<p>Our initial SL was set at a tight 0.5% of the trade value, with a take-profit of 1.5%. This was a deliberate choice to favor risk management over aggressive profit-taking. We weren&rsquo;t aiming to double our money on every trade; we were aiming to survive.</p>
+<h3 id="the-first-signs-of-trouble-the-squeeze">The First Signs of Trouble: The Squeeze<a hidden class="anchor" aria-hidden="true" href="#the-first-signs-of-trouble-the-squeeze">#</a></h3>
+<p>PocketRocket started its life with a few small, profitable trades. It felt good! The equity curve, while modest, was trending upwards. Then, the market decided to have a little fun. We entered a period of low volatility, a trading graveyard for momentum-based bots.</p>
+<p>This is where the concept of &ldquo;drawdown&rdquo; really hits home. Drawdown is the peak-to-trough decline in an investment. It’s the painful period where your equity curve goes down, and you question every line of code you’ve ever written.</p>
+<p>One of the first challenges we faced was the <strong><code>CHOP_THRESHOLD</code></strong>. This parameter was designed to detect sideways, choppy markets where price action is erratic and unpredictable. In such conditions, our momentum-based strategy tends to get whipsawed, triggering entries that quickly reverse.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Simplified Chop Detection</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">is_choppy</span>(price_data_10min):
+</span></span><span style="display:flex;"><span>    price_range <span style="color:#f92672">=</span> max(price_data_10min) <span style="color:#f92672">-</span> min(price_data_10min)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> price_range <span style="color:#f92672">&lt;</span> CHOP_THRESHOLD:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># In main loop:</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> is_choppy(recent_prices):
+</span></span><span style="display:flex;"><span>    log(<span style="color:#e6db74">&#34;Choppy market detected. Halting new entries.&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Prevent new trades</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pass</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Initially, our <code>CHOP_THRESHOLD</code> was set a bit too wide. This meant that even in moderately volatile markets, the bot might have been hesitant to enter, missing out on potential opportunities. Conversely, if it was too narrow, it could get caught in minor fluctuations. Finding that sweet spot is an art, not a science. We adjusted it to <code>0.15%</code> for the 10-minute price range, a value that seemed to capture genuine stagnation.</p>
+<p>Then came the <strong>consecutive losses</strong>. Even with a tight SL, a string of bad luck can quickly erode capital. Our initial <code>CONSEC_LOSS_LIMIT</code> was set at 5, with a <code>COOLDOWN_SEC</code> of 30 minutes. This meant that after 5 losing trades in a row, the bot would take a 30-minute break.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Simplified Loss Tracking and Cooldown</span>
+</span></span><span style="display:flex;"><span>consecutive_losses <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>last_trade_time <span style="color:#f92672">=</span> time<span style="color:#f92672">.</span>time()
+</span></span><span style="display:flex;"><span>cooldown_until <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">record_loss</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">global</span> consecutive_losses, cooldown_until
+</span></span><span style="display:flex;"><span>    consecutive_losses <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> consecutive_losses <span style="color:#f92672">&gt;=</span> CONSEC_LOSS_LIMIT:
+</span></span><span style="display:flex;"><span>        log(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Consecutive loss limit (</span><span style="color:#e6db74">{</span>CONSEC_LOSS_LIMIT<span style="color:#e6db74">}</span><span style="color:#e6db74">) reached. Entering cooldown.&#34;</span>)
+</span></span><span style="display:flex;"><span>        cooldown_until <span style="color:#f92672">=</span> time<span style="color:#f92672">.</span>time() <span style="color:#f92672">+</span> COOLDOWN_SEC
+</span></span><span style="display:flex;"><span>        consecutive_losses <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> <span style="color:#75715e"># Reset after cooldown period</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">can_enter_trade</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> time<span style="color:#f92672">.</span>time() <span style="color:#f92672">&lt;</span> cooldown_until:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Other checks...</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">True</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>During a particularly brutal market swing, we hit that 5-loss streak. The 30-minute cooldown felt like an eternity. When the bot resumed trading, it was still in a volatile environment, and it quickly racked up another streak. This highlighted a key learning: a 30-minute break might not be enough to allow the market to reset, especially after a significant losing streak.</p>
+<p>This led to a crucial revision: we increased the <code>CONSEC_LOSS_LIMIT</code> to 3, but significantly extended the <code>COOLDOWN_SEC</code> to a full hour (<code>3600</code> seconds). The logic was to have shorter, more frequent breaks if we hit a couple of losses, but a longer, more meaningful break after a slightly larger streak. This also meant we introduced an individual cooldown for each SL event.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># v23.4 Updates (Conceptual)</span>
+</span></span><span style="display:flex;"><span>CONSEC_LOSS_LIMIT <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>        <span style="color:#75715e"># Shorter streak triggers cooldown</span>
+</span></span><span style="display:flex;"><span>COOLDOWN_SEC <span style="color:#f92672">=</span> <span style="color:#ae81ff">3600</span>          <span style="color:#75715e"># Longer cooldown (1 hour)</span>
+</span></span><span style="display:flex;"><span>SL_COOLDOWN_SEC <span style="color:#f92672">=</span> <span style="color:#ae81ff">300</span>        <span style="color:#75715e"># New: 5-minute cooldown per SL</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The <code>SL_COOLDOWN_SEC</code> was a new addition, a direct response to the frustration of hitting multiple stop-losses in quick succession. The idea was that if a single trade was stopped out, we’d wait 5 minutes before considering another trade. This gave us a small breather and a chance for the market to settle <em>after</em> a specific loss, rather than just waiting for a general market cooldown. It felt like a more granular approach to risk management.</p>
+<h3 id="the-leverage-tightrope">The Leverage Tightrope<a hidden class="anchor" aria-hidden="true" href="#the-leverage-tightrope">#</a></h3>
+<p>Ah, leverage. The double-edged sword of crypto trading. PocketRocket started with a modest 10x leverage. This was a conscious decision. We wanted to amplify our small capital without exposing ourselves to catastrophic liquidation risk.</p>
+<p>However, even with 10x, a sharp move against us could wipe out a significant portion of our capital. This is where the <strong><code>SL_PCT</code></strong> became even more critical. We initially had it at 0.5%, but after seeing some trades get stopped out too quickly, and others linger too long and incur more slippage, we adjusted it.</p>
+<p>The backtesting and live monitoring revealed that a SL of 0.8% was a better balance for our strategy. It allowed trades a little more breathing room to develop, but was still tight enough to prevent massive losses.</p>
+<p>One of the biggest lessons here was the psychological impact of leverage. Even with automated trading, seeing your unrealized P&amp;L swing wildly due to leverage is… intense. It reinforces the need for an ironclad stop-loss and a clear understanding of your risk per trade.</p>
+<h3 id="the-equity-curves-rollercoaster">The Equity Curve&rsquo;s Rollercoaster<a hidden class="anchor" aria-hidden="true" href="#the-equity-curves-rollercoaster">#</a></h3>
+<p>Let’s look at the actual equity curve. Starting at $86, we saw some initial gains, pushing us towards $90. Then, the drawdown began.</p>
+<p><strong>(Imagine a graph here: initial steady climb, then a dip, then a slow recovery, then another dip, and finally a gradual, more stable climb.)</strong></p>
+<p>The first significant dip saw our capital shrink to around $75. This was a ~12.8% drawdown from our peak. It felt like a gut punch. The bot was still technically functioning, but the losses were outpacing the wins.</p>
+<p>During this period, we identified that the <strong><code>MACD_THRESHOLD</code></strong> was too low. We were entering trades on signals that weren&rsquo;t strong enough, leading to many SL hits. The MACD (Moving Average Convergence Divergence) is a trend-following momentum indicator. A higher threshold means we&rsquo;re only entering when the MACD signal is very strong, indicating a more confirmed trend.</p>
+<p>We bumped the <code>MACD_THRESHOLD</code> from 50 to 80. This was a significant change, and it definitely reduced the number of trades, but the quality of the trades improved. Fewer false signals, fewer quick SL hits.</p>
+<p>Then, the market entered a period of moderate volatility. This was PocketRocket’s sweet spot. The momentum indicators were firing, the trend filter was aligning, and we started seeing more profitable trades. The equity curve began to climb back.</p>
+<p>We eventually broke through our initial peak and nudged past $100. It wasn&rsquo;t a moonshot, but for an $86 starting capital, surviving a drawdown and ending up over $100 felt like a monumental victory.</p>
+<h3 id="lessons-learned-the-hard-way">Lessons Learned the Hard Way<a hidden class="anchor" aria-hidden="true" href="#lessons-learned-the-hard-way">#</a></h3>
+<ol>
+<li><strong>Drawdowns are Inevitable:</strong> No matter how good your backtest looks, live markets will throw curveballs. The key is not to avoid drawdowns, but to <em>survive</em> them. This means prioritizing risk management above all else.</li>
+<li><strong>Parameter Tuning is an Art:</strong> Finding the right values for parameters like <code>EMA_BUFFER</code>, <code>MACD_THRESHOLD</code>, <code>CHOP_THRESHOLD</code>, and cooldown periods is an iterative process. What works in backtest might not work live, and vice versa. Continuous monitoring and adjustment are essential.</li>
+<li><strong>Leverage is a Monster:</strong> Even small amounts of leverage can amplify losses quickly. Understand your liquidation price and ensure your SL is well within the bounds of your capital.</li>
+<li><strong>Cooldowns are Your Friend (When Tuned Right):</strong> Don’t be afraid to let your bot rest. A well-timed cooldown can prevent a string of losses from becoming a catastrophic one. The duration and trigger for cooldowns are crucial.</li>
+<li><strong>Focus on Survival, Not Just Profits:</strong> With small capital, your primary goal should be to preserve it. Small, consistent wins and tight risk control are far more effective than chasing huge profits and risking everything.</li>
+<li><strong>The &ldquo;Maker&rdquo; Strategy&rsquo;s Value:</strong> For small capital and scalping, a maker-focused strategy with limit orders for entry and TP can significantly reduce slippage and improve profitability, especially in volatile markets.</li>
+</ol>
+<p>PocketRocket is still running. It’s not a money-printing machine, but it’s a testament to what’s possible when you combine a solid strategy with disciplined risk management. It’s proof that even with a tiny amount of capital, you can build something that survives the harsh realities of the trading world. The journey from $86 to $100 was more valuable than any percentage gain because it taught me resilience. And in the world of algorithmic trading, resilience is the ultimate currency.</p>
+<h3 id="key-takeaways">Key Takeaways<a hidden class="anchor" aria-hidden="true" href="#key-takeaways">#</a></h3>
+<ul>
+<li><strong>Prioritize Risk Management:</strong> Stop-losses and cooldown periods are your best friends when trading with small capital.</li>
+<li><strong>Iterative Parameter Tuning:</strong> Don&rsquo;t expect perfect parameters from the start. Continuously monitor and adjust your bot&rsquo;s settings based on live performance.</li>
+<li><strong>Leverage with Caution:</strong> Understand the risks associated with leverage and ensure your stop-losses are robust enough.</li>
+<li><strong>Choppy Markets are Bot Killers:</strong> Implement effective mechanisms to detect and avoid trading in sideways, low-volatility markets.</li>
+<li><strong>Drawdowns are Opportunities to Learn:</strong> View drawdowns not as failures, but as valuable data points for improving your bot&rsquo;s strategy and risk controls.</li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://njh8387-ctrl.github.io/tags/trading-bot/">Trading-Bot</a></li>
+      <li><a href="https://njh8387-ctrl.github.io/tags/crypto/">Crypto</a></li>
+      <li><a href="https://njh8387-ctrl.github.io/tags/bitcoin/">Bitcoin</a></li>
+      <li><a href="https://njh8387-ctrl.github.io/tags/deribit/">Deribit</a></li>
+      <li><a href="https://njh8387-ctrl.github.io/tags/python/">Python</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://njh8387-ctrl.github.io/posts/the-86-dollar-challenge/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>The $86 Challenge</span>
+  </a>
+  <a class="next" href="https://njh8387-ctrl.github.io/posts/grid-search-750-combinations/">
+    <span class="title">Next »</span>
+    <br>
+    <span>750 Combinations, One Winner</span>
+  </a>
+</nav>
+
+
+<ul class="share-buttons">
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share From $86 to $100: How My Tiny Trading Bot Survived the Drawdown Gauntlet on x"
+            href="https://x.com/intent/tweet/?text=From%20%2486%20to%20%24100%3a%20How%20My%20Tiny%20Trading%20Bot%20Survived%20the%20Drawdown%20Gauntlet&amp;url=https%3a%2f%2fnjh8387-ctrl.github.io%2fposts%2ffrom-86-to-100-how-my-tiny-trading-bot-survived-the-drawdown%2f&amp;hashtags=trading-bot%2ccrypto%2cbitcoin%2cderibit%2cpython">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share From $86 to $100: How My Tiny Trading Bot Survived the Drawdown Gauntlet on linkedin"
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fnjh8387-ctrl.github.io%2fposts%2ffrom-86-to-100-how-my-tiny-trading-bot-survived-the-drawdown%2f&amp;title=From%20%2486%20to%20%24100%3a%20How%20My%20Tiny%20Trading%20Bot%20Survived%20the%20Drawdown%20Gauntlet&amp;summary=From%20%2486%20to%20%24100%3a%20How%20My%20Tiny%20Trading%20Bot%20Survived%20the%20Drawdown%20Gauntlet&amp;source=https%3a%2f%2fnjh8387-ctrl.github.io%2fposts%2ffrom-86-to-100-how-my-tiny-trading-bot-survived-the-drawdown%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share From $86 to $100: How My Tiny Trading Bot Survived the Drawdown Gauntlet on reddit"
+            href="https://reddit.com/submit?url=https%3a%2f%2fnjh8387-ctrl.github.io%2fposts%2ffrom-86-to-100-how-my-tiny-trading-bot-survived-the-drawdown%2f&title=From%20%2486%20to%20%24100%3a%20How%20My%20Tiny%20Trading%20Bot%20Survived%20the%20Drawdown%20Gauntlet">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share From $86 to $100: How My Tiny Trading Bot Survived the Drawdown Gauntlet on facebook"
+            href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fnjh8387-ctrl.github.io%2fposts%2ffrom-86-to-100-how-my-tiny-trading-bot-survived-the-drawdown%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share From $86 to $100: How My Tiny Trading Bot Survived the Drawdown Gauntlet on whatsapp"
+            href="https://api.whatsapp.com/send?text=From%20%2486%20to%20%24100%3a%20How%20My%20Tiny%20Trading%20Bot%20Survived%20the%20Drawdown%20Gauntlet%20-%20https%3a%2f%2fnjh8387-ctrl.github.io%2fposts%2ffrom-86-to-100-how-my-tiny-trading-bot-survived-the-drawdown%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share From $86 to $100: How My Tiny Trading Bot Survived the Drawdown Gauntlet on telegram"
+            href="https://telegram.me/share/url?text=From%20%2486%20to%20%24100%3a%20How%20My%20Tiny%20Trading%20Bot%20Survived%20the%20Drawdown%20Gauntlet&amp;url=https%3a%2f%2fnjh8387-ctrl.github.io%2fposts%2ffrom-86-to-100-how-my-tiny-trading-bot-survived-the-drawdown%2f">
+            <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share From $86 to $100: How My Tiny Trading Bot Survived the Drawdown Gauntlet on ycombinator"
+            href="https://news.ycombinator.com/submitlink?t=From%20%2486%20to%20%24100%3a%20How%20My%20Tiny%20Trading%20Bot%20Survived%20the%20Drawdown%20Gauntlet&u=https%3a%2f%2fnjh8387-ctrl.github.io%2fposts%2ffrom-86-to-100-how-my-tiny-trading-bot-survived-the-drawdown%2f">
+            <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
+                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
+                <path
+                    d="M449.446 0C483.971 0 512 28.03 512 62.554L512 449.446C512 483.97 483.97 512 449.446 512L62.554 512C28.03 512 0 483.97 0 449.446L0 62.554C0 28.03 28.029 0 62.554 0L449.446 0ZM183.8767 87.9921H121.8427L230.6673 292.4508V424.0079H281.3328V292.4508L390.1575 87.9921H328.1233L256 238.2489z" />
+            </svg>
+        </a>
+    </li>
+</ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://njh8387-ctrl.github.io/">Algo Trading Lab</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

@@ -1,1 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Maker-Taker on Algo Trading Lab</title><link>https://njh8387-ctrl.github.io/tags/maker-taker/</link><description>Recent content in Maker-Taker on Algo Trading Lab</description><generator>Hugo -- 0.147.6</generator><language>en-us</language><lastBuildDate>Mon, 02 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://njh8387-ctrl.github.io/tags/maker-taker/index.xml" rel="self" type="application/rss+xml"/><item><title>The Fee That Bankrupted 22 Bots</title><link>https://njh8387-ctrl.github.io/posts/why-taker-fees-killed-my-bot/</link><pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate><guid>https://njh8387-ctrl.github.io/posts/why-taker-fees-killed-my-bot/</guid><description>I lost 98.8% of my capital before discovering that taker fees (0.05%) made every strategy negative EV. Here&amp;#39;s the data.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Maker-Taker on Algo Trading Lab</title>
+    <link>https://njh8387-ctrl.github.io/tags/maker-taker/</link>
+    <description>Recent content in Maker-Taker on Algo Trading Lab</description>
+    <generator>Hugo -- 0.147.6</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 02 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://njh8387-ctrl.github.io/tags/maker-taker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Fee That Bankrupted 22 Bots</title>
+      <link>https://njh8387-ctrl.github.io/posts/why-taker-fees-killed-my-bot/</link>
+      <pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://njh8387-ctrl.github.io/posts/why-taker-fees-killed-my-bot/</guid>
+      <description>I lost 98.8% of my capital before discovering that taker fees (0.05%) made every strategy negative EV. Here&amp;#39;s the data.</description>
+    </item>
+  </channel>
+</rss>

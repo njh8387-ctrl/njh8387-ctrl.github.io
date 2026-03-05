@@ -1,1 +1,117 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Tags on Algo Trading Lab</title><link>https://njh8387-ctrl.github.io/tags/</link><description>Recent content in Tags on Algo Trading Lab</description><generator>Hugo -- 0.147.6</generator><language>en-us</language><lastBuildDate>Tue, 03 Mar 2026 12:00:00 +0900</lastBuildDate><atom:link href="https://njh8387-ctrl.github.io/tags/index.xml" rel="self" type="application/rss+xml"/><item><title>Challenge</title><link>https://njh8387-ctrl.github.io/tags/challenge/</link><pubDate>Tue, 03 Mar 2026 12:00:00 +0900</pubDate><guid>https://njh8387-ctrl.github.io/tags/challenge/</guid><description/></item><item><title>Crypto</title><link>https://njh8387-ctrl.github.io/tags/crypto/</link><pubDate>Tue, 03 Mar 2026 12:00:00 +0900</pubDate><guid>https://njh8387-ctrl.github.io/tags/crypto/</guid><description/></item><item><title>Deribit</title><link>https://njh8387-ctrl.github.io/tags/deribit/</link><pubDate>Tue, 03 Mar 2026 12:00:00 +0900</pubDate><guid>https://njh8387-ctrl.github.io/tags/deribit/</guid><description/></item><item><title>Journey</title><link>https://njh8387-ctrl.github.io/tags/journey/</link><pubDate>Tue, 03 Mar 2026 12:00:00 +0900</pubDate><guid>https://njh8387-ctrl.github.io/tags/journey/</guid><description/></item><item><title>Trading-Bot</title><link>https://njh8387-ctrl.github.io/tags/trading-bot/</link><pubDate>Tue, 03 Mar 2026 12:00:00 +0900</pubDate><guid>https://njh8387-ctrl.github.io/tags/trading-bot/</guid><description/></item><item><title>Backtesting</title><link>https://njh8387-ctrl.github.io/tags/backtesting/</link><pubDate>Tue, 03 Mar 2026 00:00:00 +0000</pubDate><guid>https://njh8387-ctrl.github.io/tags/backtesting/</guid><description/></item><item><title>Grid-Search</title><link>https://njh8387-ctrl.github.io/tags/grid-search/</link><pubDate>Tue, 03 Mar 2026 00:00:00 +0000</pubDate><guid>https://njh8387-ctrl.github.io/tags/grid-search/</guid><description/></item><item><title>Optimization</title><link>https://njh8387-ctrl.github.io/tags/optimization/</link><pubDate>Tue, 03 Mar 2026 00:00:00 +0000</pubDate><guid>https://njh8387-ctrl.github.io/tags/optimization/</guid><description/></item><item><title>Python</title><link>https://njh8387-ctrl.github.io/tags/python/</link><pubDate>Tue, 03 Mar 2026 00:00:00 +0000</pubDate><guid>https://njh8387-ctrl.github.io/tags/python/</guid><description/></item><item><title>Fees</title><link>https://njh8387-ctrl.github.io/tags/fees/</link><pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate><guid>https://njh8387-ctrl.github.io/tags/fees/</guid><description/></item><item><title>Lessons</title><link>https://njh8387-ctrl.github.io/tags/lessons/</link><pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate><guid>https://njh8387-ctrl.github.io/tags/lessons/</guid><description/></item><item><title>Maker-Taker</title><link>https://njh8387-ctrl.github.io/tags/maker-taker/</link><pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate><guid>https://njh8387-ctrl.github.io/tags/maker-taker/</guid><description/></item><item><title>Macd</title><link>https://njh8387-ctrl.github.io/tags/macd/</link><pubDate>Sun, 01 Mar 2026 00:00:00 +0000</pubDate><guid>https://njh8387-ctrl.github.io/tags/macd/</guid><description/></item><item><title>Tutorial</title><link>https://njh8387-ctrl.github.io/tags/tutorial/</link><pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate><guid>https://njh8387-ctrl.github.io/tags/tutorial/</guid><description/></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tags on Algo Trading Lab</title>
+    <link>https://njh8387-ctrl.github.io/tags/</link>
+    <description>Recent content in Tags on Algo Trading Lab</description>
+    <generator>Hugo -- 0.147.6</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 05 Mar 2026 21:55:56 +0900</lastBuildDate>
+    <atom:link href="https://njh8387-ctrl.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bitcoin</title>
+      <link>https://njh8387-ctrl.github.io/tags/bitcoin/</link>
+      <pubDate>Thu, 05 Mar 2026 21:55:56 +0900</pubDate>
+      <guid>https://njh8387-ctrl.github.io/tags/bitcoin/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Crypto</title>
+      <link>https://njh8387-ctrl.github.io/tags/crypto/</link>
+      <pubDate>Thu, 05 Mar 2026 21:55:56 +0900</pubDate>
+      <guid>https://njh8387-ctrl.github.io/tags/crypto/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Deribit</title>
+      <link>https://njh8387-ctrl.github.io/tags/deribit/</link>
+      <pubDate>Thu, 05 Mar 2026 21:55:56 +0900</pubDate>
+      <guid>https://njh8387-ctrl.github.io/tags/deribit/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>https://njh8387-ctrl.github.io/tags/python/</link>
+      <pubDate>Thu, 05 Mar 2026 21:55:56 +0900</pubDate>
+      <guid>https://njh8387-ctrl.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Trading-Bot</title>
+      <link>https://njh8387-ctrl.github.io/tags/trading-bot/</link>
+      <pubDate>Thu, 05 Mar 2026 21:55:56 +0900</pubDate>
+      <guid>https://njh8387-ctrl.github.io/tags/trading-bot/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Challenge</title>
+      <link>https://njh8387-ctrl.github.io/tags/challenge/</link>
+      <pubDate>Tue, 03 Mar 2026 12:00:00 +0900</pubDate>
+      <guid>https://njh8387-ctrl.github.io/tags/challenge/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Journey</title>
+      <link>https://njh8387-ctrl.github.io/tags/journey/</link>
+      <pubDate>Tue, 03 Mar 2026 12:00:00 +0900</pubDate>
+      <guid>https://njh8387-ctrl.github.io/tags/journey/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Backtesting</title>
+      <link>https://njh8387-ctrl.github.io/tags/backtesting/</link>
+      <pubDate>Tue, 03 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://njh8387-ctrl.github.io/tags/backtesting/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Grid-Search</title>
+      <link>https://njh8387-ctrl.github.io/tags/grid-search/</link>
+      <pubDate>Tue, 03 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://njh8387-ctrl.github.io/tags/grid-search/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Optimization</title>
+      <link>https://njh8387-ctrl.github.io/tags/optimization/</link>
+      <pubDate>Tue, 03 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://njh8387-ctrl.github.io/tags/optimization/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Fees</title>
+      <link>https://njh8387-ctrl.github.io/tags/fees/</link>
+      <pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://njh8387-ctrl.github.io/tags/fees/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Lessons</title>
+      <link>https://njh8387-ctrl.github.io/tags/lessons/</link>
+      <pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://njh8387-ctrl.github.io/tags/lessons/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Maker-Taker</title>
+      <link>https://njh8387-ctrl.github.io/tags/maker-taker/</link>
+      <pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://njh8387-ctrl.github.io/tags/maker-taker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Macd</title>
+      <link>https://njh8387-ctrl.github.io/tags/macd/</link>
+      <pubDate>Sun, 01 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://njh8387-ctrl.github.io/tags/macd/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tutorial</title>
+      <link>https://njh8387-ctrl.github.io/tags/tutorial/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://njh8387-ctrl.github.io/tags/tutorial/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

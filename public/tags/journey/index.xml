@@ -1,1 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Journey on Algo Trading Lab</title><link>https://njh8387-ctrl.github.io/tags/journey/</link><description>Recent content in Journey on Algo Trading Lab</description><generator>Hugo -- 0.147.6</generator><language>en-us</language><lastBuildDate>Tue, 03 Mar 2026 12:00:00 +0900</lastBuildDate><atom:link href="https://njh8387-ctrl.github.io/tags/journey/index.xml" rel="self" type="application/rss+xml"/><item><title>The $86 Challenge</title><link>https://njh8387-ctrl.github.io/posts/the-86-dollar-challenge/</link><pubDate>Tue, 03 Mar 2026 12:00:00 +0900</pubDate><guid>https://njh8387-ctrl.github.io/posts/the-86-dollar-challenge/</guid><description>After losing 98.8% of $7,714, I&amp;#39;m starting over with $86. Here&amp;#39;s the plan, the strategy, and why I think it&amp;#39;s possible.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Journey on Algo Trading Lab</title>
+    <link>https://njh8387-ctrl.github.io/tags/journey/</link>
+    <description>Recent content in Journey on Algo Trading Lab</description>
+    <generator>Hugo -- 0.147.6</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 03 Mar 2026 12:00:00 +0900</lastBuildDate>
+    <atom:link href="https://njh8387-ctrl.github.io/tags/journey/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The $86 Challenge</title>
+      <link>https://njh8387-ctrl.github.io/posts/the-86-dollar-challenge/</link>
+      <pubDate>Tue, 03 Mar 2026 12:00:00 +0900</pubDate>
+      <guid>https://njh8387-ctrl.github.io/posts/the-86-dollar-challenge/</guid>
+      <description>After losing 98.8% of $7,714, I&amp;#39;m starting over with $86. Here&amp;#39;s the plan, the strategy, and why I think it&amp;#39;s possible.</description>
+    </item>
+  </channel>
+</rss>

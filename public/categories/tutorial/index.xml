@@ -1,1 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Tutorial on Algo Trading Lab</title><link>https://njh8387-ctrl.github.io/categories/tutorial/</link><description>Recent content in Tutorial on Algo Trading Lab</description><generator>Hugo -- 0.147.6</generator><language>en-us</language><lastBuildDate>Sat, 28 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://njh8387-ctrl.github.io/categories/tutorial/index.xml" rel="self" type="application/rss+xml"/><item><title>Build Your Own Backtesting Engine</title><link>https://njh8387-ctrl.github.io/posts/building-python-backtesting-engine/</link><pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate><guid>https://njh8387-ctrl.github.io/posts/building-python-backtesting-engine/</guid><description>Step-by-step guide to building a backtesting engine that processes 264,000+ candles in under 60 seconds. Includes EMA, position management, and fee modeling.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tutorial on Algo Trading Lab</title>
+    <link>https://njh8387-ctrl.github.io/categories/tutorial/</link>
+    <description>Recent content in Tutorial on Algo Trading Lab</description>
+    <generator>Hugo -- 0.147.6</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 28 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://njh8387-ctrl.github.io/categories/tutorial/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Build Your Own Backtesting Engine</title>
+      <link>https://njh8387-ctrl.github.io/posts/building-python-backtesting-engine/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://njh8387-ctrl.github.io/posts/building-python-backtesting-engine/</guid>
+      <description>Step-by-step guide to building a backtesting engine that processes 264,000&#43; candles in under 60 seconds. Includes EMA, position management, and fee modeling.</description>
+    </item>
+  </channel>
+</rss>

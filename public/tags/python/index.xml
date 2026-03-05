@@ -1,1 +1,40 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Python on Algo Trading Lab</title><link>https://njh8387-ctrl.github.io/tags/python/</link><description>Recent content in Python on Algo Trading Lab</description><generator>Hugo -- 0.147.6</generator><language>en-us</language><lastBuildDate>Tue, 03 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://njh8387-ctrl.github.io/tags/python/index.xml" rel="self" type="application/rss+xml"/><item><title>750 Combinations, One Winner</title><link>https://njh8387-ctrl.github.io/posts/grid-search-750-combinations/</link><pubDate>Tue, 03 Mar 2026 00:00:00 +0000</pubDate><guid>https://njh8387-ctrl.github.io/posts/grid-search-750-combinations/</guid><description>I tested 750 parameter combinations across 6 months of BTC data. One variable dominated everything else: the EMA buffer.</description></item><item><title>+49,598% Backtest Results</title><link>https://njh8387-ctrl.github.io/posts/crypto-bot-49598-percent-backtest/</link><pubDate>Sun, 01 Mar 2026 00:00:00 +0000</pubDate><guid>https://njh8387-ctrl.github.io/posts/crypto-bot-49598-percent-backtest/</guid><description>A deep dive into building a BTC perpetual futures bot using MACD filtering, achieving +49,598% returns in 6-month backtesting with 264,000 candles.</description></item><item><title>Build Your Own Backtesting Engine</title><link>https://njh8387-ctrl.github.io/posts/building-python-backtesting-engine/</link><pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate><guid>https://njh8387-ctrl.github.io/posts/building-python-backtesting-engine/</guid><description>Step-by-step guide to building a backtesting engine that processes 264,000+ candles in under 60 seconds. Includes EMA, position management, and fee modeling.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Python on Algo Trading Lab</title>
+    <link>https://njh8387-ctrl.github.io/tags/python/</link>
+    <description>Recent content in Python on Algo Trading Lab</description>
+    <generator>Hugo -- 0.147.6</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 05 Mar 2026 21:55:56 +0900</lastBuildDate>
+    <atom:link href="https://njh8387-ctrl.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>From $86 to $100: How My Tiny Trading Bot Survived the Drawdown Gauntlet</title>
+      <link>https://njh8387-ctrl.github.io/posts/from-86-to-100-how-my-tiny-trading-bot-survived-the-drawdown/</link>
+      <pubDate>Thu, 05 Mar 2026 21:55:56 +0900</pubDate>
+      <guid>https://njh8387-ctrl.github.io/posts/from-86-to-100-how-my-tiny-trading-bot-survived-the-drawdown/</guid>
+      <description>Real lessons from building automated trading bots</description>
+    </item>
+    <item>
+      <title>750 Combinations, One Winner</title>
+      <link>https://njh8387-ctrl.github.io/posts/grid-search-750-combinations/</link>
+      <pubDate>Tue, 03 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://njh8387-ctrl.github.io/posts/grid-search-750-combinations/</guid>
+      <description>I tested 750 parameter combinations across 6 months of BTC data. One variable dominated everything else: the EMA buffer.</description>
+    </item>
+    <item>
+      <title>&#43;49,598% Backtest Results</title>
+      <link>https://njh8387-ctrl.github.io/posts/crypto-bot-49598-percent-backtest/</link>
+      <pubDate>Sun, 01 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://njh8387-ctrl.github.io/posts/crypto-bot-49598-percent-backtest/</guid>
+      <description>A deep dive into building a BTC perpetual futures bot using MACD filtering, achieving &#43;49,598% returns in 6-month backtesting with 264,000 candles.</description>
+    </item>
+    <item>
+      <title>Build Your Own Backtesting Engine</title>
+      <link>https://njh8387-ctrl.github.io/posts/building-python-backtesting-engine/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://njh8387-ctrl.github.io/posts/building-python-backtesting-engine/</guid>
+      <description>Step-by-step guide to building a backtesting engine that processes 264,000&#43; candles in under 60 seconds. Includes EMA, position management, and fee modeling.</description>
+    </item>
+  </channel>
+</rss>
